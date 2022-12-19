@@ -8,8 +8,6 @@ class App extends React.Component {
     quotes: [],
     quote: "",
     author: "",
-    loader: document.getElementById("loader"),
-    quoteWrapper: document.getElementById("quote-wrapper"),
     isMounted: true,
   };
 
@@ -47,10 +45,21 @@ class App extends React.Component {
     this.setState({ quotes: [] });
   };
 
+  handleFadeIn = () => {
+    const quoteWrapper = document.getElementById("quote-wrapper");
+    quoteWrapper.classList.add("fade-in");
+  };
+
+  handleRemoveFadeIn = () => {
+    const quoteWrapper = document.getElementById("quote-wrapper");
+    quoteWrapper.classList.remove("fade-in");
+  };
+
   handleRenderQuote = () => {
     const quoteText = document.getElementById("quote");
     const randomQuote =
       this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)];
+
     if (!randomQuote.author || randomQuote.author === "") {
       randomQuote.author = "Unknown Author";
     }
@@ -63,7 +72,11 @@ class App extends React.Component {
 
     this.setState({ quote: randomQuote.text });
     this.setState({ author: randomQuote.author });
+    this.handleFadeIn();
     console.log(randomQuote.text.length); // Length of quote
+    setTimeout(() => {
+      this.handleRemoveFadeIn();
+    }, 1200);
   };
 
   handleTweetQuote = () => {
