@@ -1,2 +1,2 @@
 <h1>Random Quote Generator</h1>
-<img src="./src/assets/images/quote-generator.png"/>
+<a href="https://lyolayale.github.io/quote-generator/"><img src="./src/assets/images/quote-generator.png"/></a>
