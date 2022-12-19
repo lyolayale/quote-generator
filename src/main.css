@@ -87,6 +87,11 @@ body {
   border-radius: 10px;
   background-color: 255 255 255 0.4;
   box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.5s all;
+}
+
+.quote-wrapper:hover {
+  transform: translateY(-3px);
 }
 
 .quote-container {
@@ -95,7 +100,7 @@ body {
   justify-content: center;
   gap: 16px;
   width: 100%;
-  animation: startFade 1s linear;
+  animation: startFade 2s linear;
 }
 
 .quote-text {
@@ -161,20 +166,24 @@ body {
 @keyframes fadein {
   0% {
     transform: scale(0);
+    color: transparent;
   }
 
   100% {
     transform: scale(1);
+    color: #000;
   }
 }
 
 @keyframes startFade {
   0% {
     transform: translateY(-100%);
+    color: transparent;
   }
 
   100% {
     transform: translateY(0);
+    color: #000;
   }
 }
 
