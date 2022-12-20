@@ -1,4 +1,6 @@
 import React from "react";
+import QuoteList from "./components/QuoteList";
+import Loader from "./components/Loader";
 
 import "./main.css";
 import "./normalize.css";
@@ -103,32 +105,13 @@ class App extends React.Component {
   render() {
     return (
       <main id="main">
-        <section id="quote-wrapper" className="quote-wrapper">
-          <div id="quote-container" className="quote-container">
-            <section className="quote-text">
-              <i className="fa-solid fa-quote-left"></i>
-              <span id="quote">{this.state.quote}</span>
-              <i className="fa-solid fa-quote-right"></i>
-            </section>
-            <section className="author">
-              <span id="author">{this.state.author}</span>
-            </section>
-            <section className="buttons">
-              <button
-                onClick={this.handleTweetQuote}
-                className="twitter-btn"
-                id="twitter"
-                title="Tweet This!"
-              >
-                <i className="fab fa-twitter"></i>
-              </button>
-              <button onClick={this.handleRenderQuote} id="new-quote">
-                New Quote
-              </button>
-            </section>
-          </div>
-        </section>
-        <section id="loader" className="loader"></section>
+        <QuoteList
+          quote={this.state.quote}
+          author={this.state.author}
+          handleTweetQuote={this.handleTweetQuote}
+          handleRenderQuote={this.handleRenderQuote}
+        />
+        <Loader />
       </main>
     );
   }
